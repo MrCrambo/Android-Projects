@@ -43,7 +43,7 @@ Placing simple 3d object loaded from [Googles' poly](https://poly.google.com/) w
 - Create `fragment` element in your activity layout
 - Some magic (I mean code - **detect the plane and add your model, don't forget to do it transformable for resizing and moving**) in your activity class and it's ready!
 
-Here will be gif soon..
+![First App Capture](https://github.com/MrCrambo/Android-Studio-AR/blob/master/Samples/ar_1.gif)
 
 ## AugmentedR_2
 Placing simple 3d objects like cube, sphere and cylinder to the plane.
