@@ -1,7 +1,7 @@
 # AR apps in Android Studio
- Android Studio projects with using Augmented Reality libraries.
+Android Studio projects with using Augmented Reality libraries. Here will be simple apps with adding different objects to the scene, animations of 3d objects, games with shooting to the objects, face detection and masks, playing video on scenes and manu other simple projects.
  
-#### Requirements
+#### Requirements for each app
 Add to the `android` section in `buidl.gradle` following code after `buildTypes`.
 ```java
     compileOptions {
