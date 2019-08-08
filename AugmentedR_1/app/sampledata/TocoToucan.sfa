@@ -18,10 +18,10 @@
           metallic: 0,
         },
         {
-          roughness: 1,
+          roughness: 0.9,
         },
         {
-          opacity: -1,
+          opacity: null,
         },
       ],
       source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
