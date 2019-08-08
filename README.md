@@ -1,5 +1,5 @@
-# Android-Studio-AR-projects
- Android Studio projects with using Augmented Reality libraries
+# AR apps in Android Studio
+ Android Studio projects with using Augmented Reality libraries.
  
 #### Requirements
 Add to the `android` section in `buidl.gradle` following code after `buildTypes`.
@@ -21,6 +21,18 @@ Add to the `dependencies` section in `buidl.gradle` following code after all imp
     // Alternatively, use ArSceneView without the UX dependency.
     implementation 'com.google.ar.sceneform:core:1.11.0'
 ```
+
+Add to the `manifest` section in `AndroidManifest.xml` permissions before `application` section and add `meta-data` inside of `application`
+```java
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera.ar" android:required="true"/>
+    ...
+    <application
+        ...
+        <meta-data android:name="com.google.ar.core" android:value="required" />
+    </application>
+```
+
 
 ## AugmentedR_1
 Placing simple 3d object loaded from [Googles' poly](https://poly.google.com/) website to the plane detected near you.
