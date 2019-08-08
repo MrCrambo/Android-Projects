@@ -1,7 +1,7 @@
 # AR apps in Android Studio
-Android Studio projects with using Augmented Reality libraries. Here will be simple apps with adding different objects to the scene, animations of 3d objects, games with shooting to the objects, face detection and masks, playing video on scenes and manu other simple projects.
+Android Studio projects with using Augmented Reality libraries. Here will be simple apps with adding different objects to the scene, animations of 3d objects, games with shooting to the objects, face detection and masks, playing video on scenes and many other simple projects.
  
-#### Requirements for each app
+### Requirements
 Add to the `android` section in `buidl.gradle` following code after `buildTypes`.
 ```java
     compileOptions {
@@ -35,7 +35,13 @@ Add to the `manifest` section in `AndroidManifest.xml` permissions before `appli
 
 
 ## AugmentedR_1
-Placing simple 3d object loaded from [Googles' poly](https://poly.google.com/) website to the plane detected near you.
+Placing simple 3d object loaded from [Googles' poly](https://poly.google.com/) website to the plane.
+- Follow `Requirements` section
+- Load `.obj` file from [Googles' poly](https://poly.google.com/)
+- Create `Sample Data Directory`, copy and past your `.obj` and `.mtl` files there
+- Click `Import Sceneform Asset` on your `.obj` file and your object will appear in `assets` folder
+- Create `fragment` element in your activity layout
+- Some magic (I mean code - **detect the plane and add your model, don't forget to do it transformable for resizing and moving**) in your activity class and it's ready!
 
 Here will be image soon..
 
