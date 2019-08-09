@@ -53,3 +53,12 @@ Placing simple 3d objects like cube, sphere and cylinder to the plane.
 - Don't forget to make it transformable for moving and resizing
 
 ![Second App Capture](https://github.com/MrCrambo/Android-Studio-AR/blob/master/Samples/ar_2.gif)
+
+## AugmentedR_3
+`ViewPager` with images on the plane
+- Follow `Requirements` section
+- Create `fragment` element in your activity layout and create layout with `ViewPager`
+- Add on tap plane listener then create `ViewPager` with adapter and add them to the scene
+- Make it NOT transformable for easy switching between images
+
+![Third App Capture](https://github.com/MrCrambo/Android-Studio-AR/blob/master/Samples/ar_3.gif)
