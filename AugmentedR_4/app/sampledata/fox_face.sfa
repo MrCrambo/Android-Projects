@@ -1,0 +1,48 @@
+{
+  materials: [
+    {
+      name: 'nose',
+      parameters: [
+        {
+                  texture: 'nose_fur',
+                },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: 'earMAT',
+      parameters: [
+        {
+            texture : 'ear_fur',
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/fox_face.fbx',
+    name: 'fox_face',
+    recenter: 'root',
+  },
+  samplers: [
+    {
+      file: 'sampledata/ear_fur.png',
+      name: 'ear_fur',
+      pipeline_name: '..\\sample assets\\ear_fur.png',
+    },
+    {
+      file: 'sampledata/nose_fur.png',
+      name: 'nose_fur',
+      pipeline_name: '..\\fox\\nose_fur.png',
+    },
+  ],
+  version: '0.54:2',
+}

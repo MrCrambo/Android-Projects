@@ -29,19 +29,14 @@ public class MainActivity extends AppCompatActivity {
 
         fragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
         fragment.setOnTapArPlaneListener((hitResult, plane, motionEvent) -> {
-            createViewRenderable(hitResult.createAnchor());
+            ViewRenderable
+                    .builder()
+                    .setView(this, R.layout.pager)
+                    .build()
+                    .thenAccept(viewRenderable -> {
+                        addToScene(viewRenderable, hitResult.createAnchor());
+                    });
         });
-
-    }
-
-    private void createViewRenderable(Anchor anchor) {
-        ViewRenderable
-                .builder()
-                .setView(this, R.layout.pager)
-                .build()
-                .thenAccept(viewRenderable -> {
-                    addToScene(viewRenderable, anchor);
-                });
     }
 
     private void addToScene(ViewRenderable viewRenderable, Anchor anchor) {
@@ -50,11 +45,9 @@ public class MainActivity extends AppCompatActivity {
         fragment.getArSceneView().getScene().addChild(node);
 
         View view = viewRenderable.getView();
-
         ViewPager pager = view.findViewById(R.id.viewPager);
 
         List<Integer> images = new ArrayList<>();
-
         images.add(R.drawable.iu);
         images.add(R.drawable.im2);
         images.add(R.drawable.im3);
