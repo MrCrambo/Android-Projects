@@ -62,3 +62,15 @@ Placing simple 3d objects like cube, sphere and cylinder to the plane.
 - Make it NOT transformable for easy switching between images
 
 ![Third App Capture](https://github.com/MrCrambo/Android-Studio-AR/blob/master/Samples/ar_3.gif)
+
+## AugmentedR_4
+Adding fox masc to the face
+- Follow `Requirements` section
+- Load some masc for face with `.fbx` and import it
+- Create `fragment` element in your activity layout
+- Create Custom Fragment which extends `ArFragmet`
+- Render it and add to the scene
+
+##### No image for this app, try it yourself!
+
+## AugmentedR_5
