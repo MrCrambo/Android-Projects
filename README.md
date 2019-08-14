@@ -71,6 +71,19 @@ Adding fox mask to the face
 - Create Custom Fragment which extends `ArFragmet`
 - Render it and add to the scene
 
-##### No image for this app, try it yourself!
+##### No gifs for this app!
 
 ## AugmentedR_5
+Game - Kill the flying president
+- Follow `Requirements` section
+- Load some 3d object file from [Googles' poly](https://poly.google.com/)
+- Create `fragment` element in your activity layout, add buttons and UI elements
+- Add elements to the scene in different points
+- Add bullets and write shooting mechanism
+- Detect collisions and remove the objects
+- Add sound for bullets
+
+![Fifth App Capture](https://github.com/MrCrambo/Android-Studio-AR/blob/master/Samples/ar_5.gif)
+
+## AugmentedR_6
+Will be soon...
