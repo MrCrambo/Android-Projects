@@ -85,5 +85,22 @@ Game - Kill the flying president
 
 ![Fifth App Capture](https://github.com/MrCrambo/Android-Studio-AR/blob/master/Samples/ar_5.gif)
 
-## AugmentedR_6
-Will be soon...
+## Area 51 AR
+As a final project I developed Augmented Reality shooter and [published it in Play Market](https://play.google.com/store/apps/details?id=com.drakosha.zone51ar).
+Feel free to play it and leave your comments. Here is the instructions how to build your own shooter.
+- Follow `Requirements` section
+- Load some 3d objects from [Googles' poly](https://poly.google.com/) or other sites
+- Create `fragment` element in your activity layout, add buttons and UI elements
+- Add elements to the scene in different points in front of you and add thread for updating thier positions
+- Add bullets and write shooting mechanism
+- Detect collisions and remove the objects
+- Add few more levels and bosses with abilities
+- Add analytics, ads, music and promo codes
+- Publish it!
+
+![Screenshot1 from app](https://lh3.googleusercontent.com/dP-G_2_QwEwMQrFgq-NKVfs_iONcnZiGF6IjljPxUElgIkNxId1XqofXs65wiZsJEx52=w3604-h2708)
+![Screenshot2 from app](https://lh3.googleusercontent.com/PfOoi8WdLk84i396rG98EloXapxjk6XnCFD3z13Po9R-zDyVoFVAdwZi1Tjjp32dP5M=w3604-h2708)
+
+## Conclusion
+
+Feel free to write me on kadirov.il.crambo@gmail.com with questions and about issues!
