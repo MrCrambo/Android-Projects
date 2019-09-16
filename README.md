@@ -98,8 +98,9 @@ Feel free to play it and leave your comments. Here is the instructions how to bu
 - Add analytics, ads, music and promo codes
 - Publish it!
 
-![Screenshot1 from app](https://lh3.googleusercontent.com/dP-G_2_QwEwMQrFgq-NKVfs_iONcnZiGF6IjljPxUElgIkNxId1XqofXs65wiZsJEx52=w3604-h2708)
-![Screenshot2 from app](https://lh3.googleusercontent.com/PfOoi8WdLk84i396rG98EloXapxjk6XnCFD3z13Po9R-zDyVoFVAdwZi1Tjjp32dP5M=w3604-h2708)
+Screenshot 1.              |  Screenshot 2.
+:-------------------------:|:-------------------------:
+![](https://lh3.googleusercontent.com/dP-G_2_QwEwMQrFgq-NKVfs_iONcnZiGF6IjljPxUElgIkNxId1XqofXs65wiZsJEx52=w3604-h2708)  |  ![](https://lh3.googleusercontent.com/PfOoi8WdLk84i396rG98EloXapxjk6XnCFD3z13Po9R-zDyVoFVAdwZi1Tjjp32dP5M=w3604-h2708)
 
 ## Conclusion
 
