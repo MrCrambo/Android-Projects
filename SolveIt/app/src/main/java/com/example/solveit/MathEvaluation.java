@@ -4,17 +4,21 @@ class MathEvaluation {
 
     private String expression;
     private int ch, pos = -1;
+    private boolean wrongResult = false;
 
     MathEvaluation(String expression){
         this.expression = expression;
     }
 
-    double parse() {
+    String parse() {
         nextChar();
         double x = parseLowArithmetic();
         if (pos < expression.length())
-            System.out.println("Unexpected: " + (char)ch);
-        return x;
+            wrongResult = true;
+        if (!wrongResult)
+            return String.valueOf(x);
+        else
+            return "Wrong expression";
     }
 
     private double parseLowArithmetic() {
@@ -53,7 +57,7 @@ class MathEvaluation {
             // unary minus
             return -parseHighArithmetic();
 
-        double x;
+        double x = 0;
         int startPos = this.pos;
         if (evaluate('(')) {
             // parentheses
@@ -83,15 +87,14 @@ class MathEvaluation {
                     x = Math.tan(Math.toRadians(x));
                     break;
                 default:
-                    System.out.println("Unknown function: " + func);
+                    wrongResult = true;
                     break;
             }
-        } else {
-            System.out.println("Unexpected: " + (char)ch);
-            throw new RuntimeException("Unexpected: " + (char)ch);
-        }
+        } else
+            wrongResult = true;
 
-        if (evaluate('^')) x = Math.pow(x, parseHighArithmetic());
+        if (evaluate('^'))
+            x = Math.pow(x, parseHighArithmetic());
 
         return x;
     }
