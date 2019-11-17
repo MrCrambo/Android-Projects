@@ -40,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
         startCameraSource();
 
-        Toast.makeText(this, String.valueOf(MathEvaluation.evaluate("((4 - 2^3 + 1) * -sqrt(3*3+4*4)) / 2")), Toast.LENGTH_LONG).show();
+        String expr1 = "((4 -   2^3 + 1) * -sqrt(3*3+4*4)) / 2";
+        String expr2 = "     % 5    ";
+        Toast.makeText(this, String.valueOf(new MathEvaluation(expr2).parse()), Toast.LENGTH_LONG).show();
     }
 
     @Override
