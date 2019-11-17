@@ -3,17 +3,21 @@ package com.example.solveit;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.text.TextBlock;
@@ -23,9 +27,12 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-    SurfaceView mCameraView;
-    TextView mTextView;
-    CameraSource mCameraSource;
+    SurfaceView cameraView;
+    TextView textView;
+    CameraSource cameraSource;
+    ImageButton swapButton;
+    EditText expressionEditText;
+    RelativeLayout layout;
 
     private static final int requestPermissionID = 101;
 
@@ -35,21 +42,60 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        mCameraView = findViewById(R.id.surfaceView);
-        mTextView = findViewById(R.id.text_view);
+        cameraView = findViewById(R.id.surfaceView);
+        textView = findViewById(R.id.textView);
+        swapButton = findViewById(R.id.swapButton);
+        expressionEditText = findViewById(R.id.expressionEditText);
+        layout = findViewById(R.id.relativeLayout);
+
+        swapButton.setOnClickListener(view -> {
+            if (cameraView.getVisibility() == View.VISIBLE){
+                cameraSource.stop();
+                cameraView.setVisibility(View.GONE);
+                layout.setVisibility(View.VISIBLE);
+                textView.setText("");
+            } else {
+                layout.setVisibility(View.GONE);
+                cameraView.setVisibility(View.VISIBLE);
+                try {
+                    cameraSource.start(cameraView.getHolder());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            textView.setText("");
+        });
+
+        expressionEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                StringBuilder stringBuilder = new StringBuilder();
+                try {
+                    stringBuilder.append(new MathEvaluation(s.toString().replace("\n", "")).parse()).append("\n");
+                    stringBuilder.append(s.toString()).append("\n");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                textView.setText(stringBuilder.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
 
         startCameraSource();
-
-        String expr1 = "((4 -   2^3 + 1) * -sqrt(3*3+4*4)) / 2";
-        String expr2 = "     % 5    ";
-        Toast.makeText(this, String.valueOf(new MathEvaluation(expr2).parse()), Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if ( requestCode == requestPermissionID && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             try {
-                mCameraSource.start(mCameraView.getHolder());
+                cameraSource.start(cameraView.getHolder());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -63,14 +109,14 @@ public class MainActivity extends AppCompatActivity {
         final TextRecognizer textRecognizer = new TextRecognizer.Builder(getApplicationContext()).build();
 
         if (textRecognizer.isOperational()) {
-            mCameraSource = new CameraSource.Builder(getApplicationContext(), textRecognizer)
+            cameraSource = new CameraSource.Builder(getApplicationContext(), textRecognizer)
                     .setFacing(CameraSource.CAMERA_FACING_BACK)
                     .setRequestedPreviewSize(1280, 1024)
                     .setAutoFocusEnabled(true)
-                    .setRequestedFps(2.0f)
+                    .setRequestedFps(4.0f)
                     .build();
 
-            mCameraView.getHolder().addCallback(new SurfaceHolder.Callback() {
+            cameraView.getHolder().addCallback(new SurfaceHolder.Callback() {
                 @Override
                 public void surfaceCreated(SurfaceHolder holder) {
                     try {
@@ -82,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
                                     new String[]{Manifest.permission.CAMERA},
                                     requestPermissionID);
                         }
-                        mCameraSource.start(mCameraView.getHolder());
+                        cameraSource.start(cameraView.getHolder());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -94,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void surfaceDestroyed(SurfaceHolder holder) {
-                    mCameraSource.stop();
+                    cameraSource.stop();
                 }
             });
 
@@ -108,13 +154,12 @@ public class MainActivity extends AppCompatActivity {
                     final SparseArray<TextBlock> items = detections.getDetectedItems();
                     if (items.size() != 0 ){
 
-                        mTextView.post(() -> {
-                            StringBuilder stringBuilder = new StringBuilder();
-                            for(int i = 0; i < items.size(); i++){
-                                TextBlock item = items.valueAt(i);
-                                stringBuilder.append(item.getValue()).append("\n");
+                        textView.post(() -> {
+                            try {
+                                textView.setText(new MathEvaluation(items.valueAt(0).getValue()).parse());
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
-                            mTextView.setText(stringBuilder.toString());
                         });
                     }
                 }

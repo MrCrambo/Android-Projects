@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Solve It</string>
+    <string name="hint">Enter math expression</string>
+    <string name="name">Solve It</string>
 </resources>

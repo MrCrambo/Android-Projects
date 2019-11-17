@@ -7,14 +7,60 @@
     android:weightSum="5"
     tools:context=".MainActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/darkColor"
+            android:text="@string/name"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            tools:ignore="RelativeOverlap" />
+
+        <ImageButton
+            android:id="@+id/swapButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_cached"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            tools:ignore="ContentDescription" />
+    </RelativeLayout>
+
     <SurfaceView
         android:id="@+id/surfaceView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4" />
+        android:layout_weight="3.6" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        android:layout_weight="3.6"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/expressionEditText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:maxLength="25"
+            android:textColor="@color/darkColor"
+            android:hint="@string/hint"/>
+
+    </RelativeLayout>
 
     <TextView
-        android:id="@+id/text_view"
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="8dp"
@@ -22,7 +68,7 @@
         android:gravity="center"
         android:textStyle="bold"
         android:text=""
-        android:textColor="@android:color/black"
-        android:textSize="20sp" />
+        android:textColor="@color/darkColor"
+        android:textSize="18sp" />
 
 </LinearLayout>

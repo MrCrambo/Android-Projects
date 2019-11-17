@@ -93,6 +93,7 @@ class MathEvaluation {
         } else
             wrongResult = true;
 
+        // ^ looks like A, so will not recognize it!
         if (evaluate('^'))
             x = Math.pow(x, parseHighArithmetic());
 
