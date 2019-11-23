@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
                 cameraSource.stop();
                 cameraView.setVisibility(View.GONE);
                 layout.setVisibility(View.VISIBLE);
-                textView.setText("");
             } else {
                 layout.setVisibility(View.GONE);
                 cameraView.setVisibility(View.VISIBLE);
@@ -73,14 +72,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                StringBuilder stringBuilder = new StringBuilder();
                 try {
-                    stringBuilder.append(new MathEvaluation(s.toString().replace("\n", "")).parse()).append("\n");
-                    stringBuilder.append(s.toString()).append("\n");
+                    textView.setText(new MathEvaluation(s.toString().replace("\n", "")).parse());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                textView.setText(stringBuilder.toString());
             }
 
             @Override
