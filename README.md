@@ -1,7 +1,7 @@
 # AR apps in Android Studio
 Android Studio projects with using Augmented Reality libraries. Here will be simple apps with adding different objects to the scene, animations of 3d objects, games with shooting to the objects, face detection and masks, playing video on scenes and many other simple projects.
  
-### Requirements
+### Requirements for AR apps
 Add to the `android` section in `buidl.gradle` following code after `buildTypes`.
 ```java
     compileOptions {
@@ -101,6 +101,14 @@ Feel free to play it and leave your comments. Here is the instructions how to bu
 Screenshot 1.              |  Screenshot 2.
 :-------------------------:|:-------------------------:
 ![](https://lh3.googleusercontent.com/dP-G_2_QwEwMQrFgq-NKVfs_iONcnZiGF6IjljPxUElgIkNxId1XqofXs65wiZsJEx52=w3604-h2708)  |  ![](https://lh3.googleusercontent.com/PfOoi8WdLk84i396rG98EloXapxjk6XnCFD3z13Po9R-zDyVoFVAdwZi1Tjjp32dP5M=w3604-h2708)
+
+## SolveIt
+Simple project for solving math expressions using text detection.
+- Implement `com.google.android.gms:play-services-vision` last version
+- Detect text using camera
+- Add math expressions solver from string
+
+<img src="https://github.com/MrCrambo/Android-Projects/blob/master/Samples/solve_it.jpeg" alt="drawing" width="400"/>
 
 ## Conclusion
 
