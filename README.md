@@ -104,9 +104,10 @@ Screenshot 1.              |  Screenshot 2.
 
 ## SolveIt
 Simple project for solving math expressions using text detection.
-- Implement `com.google.android.gms:play-services-vision` last version
+- Implement `com.google.android.gms:play-services-vision` latest version
 - Detect text using camera
 - Add math expressions solver from string
+- Add view for entering text, if user has troubles with detecting expression
 
 <img src="https://github.com/MrCrambo/Android-Projects/blob/master/Samples/solve_it.jpeg" alt="drawing" width="400"/>
 
