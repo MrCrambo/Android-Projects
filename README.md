@@ -110,7 +110,3 @@ Simple project for solving math expressions using text detection.
 - Add view for entering text, if user has troubles with detecting expression
 
 <img src="https://github.com/MrCrambo/Android-Projects/blob/master/Samples/solve_it.jpeg" alt="drawing" width="400"/>
-
-## Conclusion
-
-Feel free to write me on kadirov.il.crambo@gmail.com with questions and about issues!
